@@ -1,0 +1,8 @@
+*.pyc
+*.egg-info
+d4rl/*
+*Linux
+*hdf5
+model.ckpt*
+log.txt
+params.json

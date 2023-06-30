@@ -2,7 +2,7 @@ import copy
 import numpy as np
 import tensorflow as tf
 
-from util.logger import Logger
+from policy_learning.awr.util.logger import Logger
 
 class Normalizer(object):
     def __init__(self, 

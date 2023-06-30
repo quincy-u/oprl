@@ -2,9 +2,9 @@ import gym
 import numpy as np
 import tensorflow as tf
 
-import learning.rl_agent as rl_agent
-import util.net_util as net_util
-import util.rl_path as rl_path
+import policy_learning.awr.learning.rl_agent as rl_agent
+import policy_learning.awr.util.net_util as net_util
+import policy_learning.awr.util.rl_path as rl_path
 
 '''
 Advantage-Weighted Regression Agent

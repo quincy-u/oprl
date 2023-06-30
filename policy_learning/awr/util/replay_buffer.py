@@ -1,7 +1,7 @@
 import numpy as np
 import copy
-import util.logger as logger
-import util.rl_path as rl_path
+import policy_learning.awr.util.logger as logger
+import policy_learning.awr.util.rl_path as rl_path
 
 INVALID_IDX = -1
 

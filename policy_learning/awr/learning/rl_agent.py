@@ -6,11 +6,11 @@ import os
 import tensorflow as tf
 import time
 
-import util.logger as logger
-import util.loggerx as loggerx
-import util.normalizer as normalizer
-import util.replay_buffer as replay_buffer
-import util.rl_path as rl_path
+import policy_learning.awr.util.logger as logger
+import policy_learning.awr.util.loggerx as loggerx
+import policy_learning.awr.util.normalizer as normalizer
+import policy_learning.awr.util.replay_buffer as replay_buffer
+import policy_learning.awr.util.rl_path as rl_path
 
 from torch.utils.tensorboard import SummaryWriter
 
@@ -172,6 +172,7 @@ class RLAgent(abc.ABC):
 
             if (iter % output_iters == 0):
                 test_return, test_path_count = self._rollout_test(test_episodes, print_info=False)
+                test_return = self._env.get_normalized_score(test_return) * 100
                 self._logger.log_tabular("Test_Return", test_return)
                 self._logger.log_tabular("Test_Paths", test_path_count)
 
@@ -383,12 +384,8 @@ class RLAgent(abc.ABC):
     def _step_env(self, a):
         if (isinstance(self._env.action_space, gym.spaces.Discrete)):
             a = int(a[0])
-        # time.sleep(.002)
-        output = self._env.step(a)
-        return output
-
-    def _check_env_termination(self):
-        if (self._env._elapsed_steps >= self._env._max_episode_steps):
+        # time.sleep
+        print(type(env))._elapsed_steps >= self._env._max_episode_steps):
            term = rl_path.Terminate.Null
         else:
            term = rl_path.Terminate.Fail

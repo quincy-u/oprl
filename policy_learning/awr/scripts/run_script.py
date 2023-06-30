@@ -9,9 +9,9 @@ import tensorflow as tf
 
 import d4rl
 
-import awr_configs
-import learning.awr_agent as awr_agent
-import learning.random_agent as random_agent
+import policy_learning.awr.awr_configs as awr_configs
+import policy_learning.awr.learning.awr_agent as awr_agent
+import policy_learning.awr.learning.random_agent as random_agent
 
 arg_parser = None
 
