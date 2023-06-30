@@ -384,8 +384,12 @@ class RLAgent(abc.ABC):
     def _step_env(self, a):
         if (isinstance(self._env.action_space, gym.spaces.Discrete)):
             a = int(a[0])
-        # time.sleep
-        print(type(env))._elapsed_steps >= self._env._max_episode_steps):
+        # time.sleep(.002)
+        output = self._env.step(a)
+        return output
+
+    def _check_env_termination(self):
+        if (self._env._elapsed_steps >= self._env._max_episode_steps):
            term = rl_path.Terminate.Null
         else:
            term = rl_path.Terminate.Fail
